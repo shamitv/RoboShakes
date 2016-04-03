@@ -5,6 +5,21 @@ import java.util.Arrays;
 public class NGram {
 	String tokens[];
 
+	public boolean startsWith(String []text){
+		if(text.length>tokens.length){
+			return false;
+		}else{
+			boolean match=true;
+			for(int i=0;i<text.length;i++){
+				if(!text[i].equals(tokens[i])){
+					match=false;
+					break;
+				}
+			}
+			return match;
+		}
+	}
+	
 	public String[] getTokens() {
 		return tokens;
 	}
@@ -40,6 +55,7 @@ public class NGram {
 		return true;
 	}
 
+	
 
 	
 }
