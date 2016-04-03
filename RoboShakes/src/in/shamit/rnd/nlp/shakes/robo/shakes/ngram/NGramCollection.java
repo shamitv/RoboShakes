@@ -31,4 +31,11 @@ public class NGramCollection {
 	public int getCount(NGram n) {
 		return grams.get(n);
 	}
+	public List<NGram> getMatches(String[] prefix,int maxLen){
+		Set<NGram> gset=grams.keySet();
+		return gset.stream()
+				.filter(g->g.getTokens().length<=maxLen)
+				.filter(g->g.startsWith(prefix))
+				.collect(Collectors.toList());
+	}
 }
