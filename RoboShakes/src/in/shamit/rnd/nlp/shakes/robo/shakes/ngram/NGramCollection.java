@@ -38,4 +38,12 @@ public class NGramCollection {
 				.filter(g->g.startsWith(prefix))
 				.collect(Collectors.toList());
 	}
+	public List<NGram> getMatches(String[] prefix,int maxLen,int limit){
+		Set<NGram> gset=grams.keySet();
+		return gset.stream()
+				.filter(g->g.getTokens().length<=maxLen)
+				.filter(g->g.startsWith(prefix))
+				.limit(limit)
+				.collect(Collectors.toList());
+	}
 }

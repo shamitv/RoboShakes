@@ -59,7 +59,7 @@ public class RoboWriter {
 			String t=text.get(text.size()-(prefix.length-i));
 			prefix[i]=t;
 		}
-		List<NGram> grams=gCol.getMatches(prefix, LoadNGrams.MAX_NGRAM_LENGTH);
+		List<NGram> grams=gCol.getMatches(prefix, LoadNGrams.MAX_NGRAM_LENGTH,1000);
 		NGram g = selectNGram(grams);
 		if(grams.size()==0){
 			System.err.println("No more NGrams");
