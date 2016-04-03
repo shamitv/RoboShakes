@@ -120,7 +120,7 @@ public class LoadNGrams {
 	
 	public static void main(String[] args) throws IOException {
 		LoadNGrams l = new LoadNGrams();
-		InputStream ins =  LoadNGrams.class.getResourceAsStream("/in/rnd/nlp/shakes/robo/resources/shakes/shakes.txt");
+		InputStream ins =  LoadNGrams.class.getResourceAsStream("/in/shamit/rnd/nlp/shakes/robo/resources/shakes/shakes.txt");
 		NGramCollection grams = l.loadNGrams(ins);
 		System.out.println("N-Grams : "+grams.getCount());
 		l.printFirst100(grams);
