@@ -1,7 +1,10 @@
 package in.shamit.rnd.nlp.shakes.robo.shakes.ngram;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class NGramCollection {
 	Map<NGram, Integer> grams=new HashMap<>();
@@ -20,5 +23,12 @@ public class NGramCollection {
 	}
 	public Map<NGram, Integer> getNGrams() {
 		return grams;
+	}
+	public List<NGram>getNGramsByLength(int length){
+		Set<NGram> gset=grams.keySet();
+		return gset.stream().filter(g->g.getTokens().length==length).collect(Collectors.toList());
+	}
+	public int getCount(NGram n) {
+		return grams.get(n);
 	}
 }

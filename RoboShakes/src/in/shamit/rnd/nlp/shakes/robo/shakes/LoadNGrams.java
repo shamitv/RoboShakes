@@ -17,10 +17,11 @@ import in.shamit.rnd.nlp.shakes.robo.shakes.ngram.NGram;
 import in.shamit.rnd.nlp.shakes.robo.shakes.ngram.NGramCollection;
 
 public class LoadNGrams {
-
+	public static final int MAX_NGRAM_LENGTH=5;
+	
 	public NGramCollection loadNGrams(InputStream in) throws IOException{
 		NGramCollection grams= new NGramCollection();
-		int maxGram=5;
+		int maxGram=MAX_NGRAM_LENGTH;
 		BufferedReader r = new BufferedReader(new InputStreamReader(in));
 		String tokens[]=tokenizeText(r);
 		if(tokens.length>=4){
@@ -121,10 +122,20 @@ public class LoadNGrams {
 	public static void main(String[] args) throws IOException {
 		LoadNGrams l = new LoadNGrams();
 		InputStream ins =  LoadNGrams.class.getResourceAsStream("/in/shamit/rnd/nlp/shakes/robo/resources/shakes/shakes.txt");
-		NGramCollection grams = l.loadNGrams(ins);
-		System.out.println("N-Grams : "+grams.getCount());
-		l.printFirst100(grams);
-		//System.out.println(Arrays.toString(l.breakPunctuations(".ab'cd'ef'gh"))); 
+		NGramCollection gramsCollection = l.loadNGrams(ins);
+		System.out.println("N-Grams : "+gramsCollection.getCount());
+		//l.printFirst100(grams);
+		//System.out.println(Arrays.toString(l.breakPunctuations(".ab'cd'ef'gh")));
+		List<NGram> grams=gramsCollection.getNGramsByLength(5)
+				.stream()
+				.filter(n->gramsCollection.getCount(n)>10)
+				.sorted((n2, n1) -> Integer.compare(gramsCollection.getCount(n1), gramsCollection.getCount(n2)))
+				.collect(Collectors.toList());
+		
+		for (NGram g : grams) {
+				System.out.println(Arrays.toString(g.getTokens())+"##"+gramsCollection.getCount(g));
+		}
+		
 	}
 
 }
