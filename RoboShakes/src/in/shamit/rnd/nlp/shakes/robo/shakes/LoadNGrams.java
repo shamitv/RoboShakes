@@ -1,4 +1,4 @@
-package in.rnd.nlp.shakes.robo.shakes;
+package in.shamit.rnd.nlp.shakes.robo.shakes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import in.rnd.nlp.shakes.robo.shakes.ngram.NGram;
-import in.rnd.nlp.shakes.robo.shakes.ngram.NGramCollection;
+import in.shamit.rnd.nlp.shakes.robo.shakes.ngram.NGram;
+import in.shamit.rnd.nlp.shakes.robo.shakes.ngram.NGramCollection;
 
 public class LoadNGrams {
 

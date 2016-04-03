@@ -1,4 +1,4 @@
-package in.rnd.nlp.shakes.robo.shakes.ngram;
+package in.shamit.rnd.nlp.shakes.robo.shakes.ngram;
 
 import java.util.HashMap;
 import java.util.Map;

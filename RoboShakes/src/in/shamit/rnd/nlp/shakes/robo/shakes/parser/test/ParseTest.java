@@ -1,4 +1,4 @@
-package in.rnd.nlp.shakes.robo.shakes.parser.test;
+package in.shamit.rnd.nlp.shakes.robo.shakes.parser.test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
